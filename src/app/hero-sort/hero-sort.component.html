@@ -1,0 +1,4 @@
+<select (change)="onChange($event.target.value)">
+  <option value="" disabled selected>Sort by...</option>
+  <option *ngFor="let option of options" [value]="option.id">{{ option.value }}</option>
+</select>
