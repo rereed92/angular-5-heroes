@@ -16,8 +16,10 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     const sortOptions = [
-      { id: 'n-asc', value: 'Name - Ascending'},
-      { id: 'n-dsc', value: 'Name - Descending'}
+      { id: 'name-asc', value: 'Name - Ascending'},
+      { id: 'name-desc', value: 'Name - Descending'},
+      { id: 'id-asc', value: 'ID - Ascending'},
+      { id: 'id-desc', value: 'ID - Descending'}
     ];
 
     return {heroes, sortOptions};

@@ -37,8 +37,7 @@ export class HeroesComponent implements OnInit {
   }
 
   onSort(option: string) {
-    console.log(option);
-    this.heroService.sortHeroes(option, this.heroes);
+    this.heroes = this.heroService.sortHeroes(option, this.heroes);
   }
 
 }

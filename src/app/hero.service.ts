@@ -48,7 +48,9 @@ export class HeroService {
   }
 
   sortHeroes(option: string, heroes: any) {
-    return heroes;
+    const sortBy = option.split('-')[0];
+    const sortOrder = option.split('-')[1];
+    return heroes.sort(this.sort(sortBy, sortOrder === 'asc' ? true : false));
   }
 
   searchHeroes(term: string): Observable<Hero[]> {
@@ -97,11 +99,14 @@ export class HeroService {
     this.messageService.add('HeroService: ' + message);
   }
 
-  private sort(a,b) {
-    if (a.value < b.value)
-      return -1;
-    if (a.value > b.value)
-      return 1;
-    return 0;
+  private sort(prop: string, asc: boolean = true) {  
+    return function(a, b) {  
+      if (a[prop] > b[prop]) {  
+          return asc ? 1 : -1  
+      } else if (a[prop] < b[prop]) {  
+          return asc ? -1 : 1;
+      }  
+      return 0;  
+    }  
   }
 }
