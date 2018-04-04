@@ -15,8 +15,8 @@ import { HeroesComponent }      from './heroes/heroes.component';
 import { HeroSearchComponent }  from './hero-search/hero-search.component';
 import { HeroSortComponent } from './hero-sort/hero-sort.component';
 
-import { HeroService }          from './hero.service';
-import { MessageService }       from './message.service';
+import { HeroService }          from './services/hero.service';
+import { MessageService }       from './services/message.service';
 import { MessagesComponent }    from './messages/messages.component';
 
 @NgModule({
