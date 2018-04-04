@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 
-import { Hero } from '../hero';
-import { HeroService } from '../services/hero.service';
+import { Hero } from '../../hero';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-hero-sort',
