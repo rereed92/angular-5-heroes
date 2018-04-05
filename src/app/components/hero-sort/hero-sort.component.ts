@@ -28,7 +28,7 @@ export class HeroSortComponent implements OnInit {
 
   getSortOptions(): void {
     this.heroService.getSortOptions()
-    .subscribe(options => this.options = options);
+      .subscribe(options => this.options = options);
   }
 
 }
