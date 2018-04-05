@@ -37,6 +37,7 @@ export class AddHeroComponent implements OnInit {
     this.heroService.addHero(this.newHero)
       .subscribe(hero => {
         this.heroService.emitNewHero(hero);
+        this.goBack();
       });
   }
 

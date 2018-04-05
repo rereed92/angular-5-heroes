@@ -17,6 +17,7 @@ import { HeroSortComponent } from './components/hero-sort/hero-sort.component';
 import { MessagesComponent }    from './components/messages/messages.component';
 import { AboutComponent } from './components/about/about.component';
 import { AddHeroComponent } from './components/add-hero/add-hero.component';
+import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
 
 import { ButtonComponent } from './common/button/button.component';
 
@@ -48,6 +49,7 @@ import { MessageService }       from './services/message.service';
     ButtonComponent,
     AboutComponent,
     AddHeroComponent,
+    EditHeroComponent,
   ],
   providers: [ HeroService, MessageService ],
   bootstrap: [ AppComponent ]

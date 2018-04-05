@@ -1,11 +1,23 @@
 <div *ngIf="hero">
   <h2>{{ hero.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
+
+  <dl>
+    <dt>Name</dt>
+    <dd>{{hero.name}}</dd>
+    <dt>Power</dt>
+    <dd>{{hero.power}}</dd>
+    <dt>Alter Ego</dt>
+    <dd>{{hero.alterEgo}}</dd>
+  </dl>
+
+  <a routerLink="/hero/{{hero.id}}/edit">Edit Hero</a>
+
+  <!-- <div><span>id: </span>{{hero.id}}</div>
   <div>
     <label>name:
       <input [(ngModel)]="hero.name" placeholder="name"/>
     </label>
-  </div>
+  </div> -->
+  <!-- <button (click)="save(hero)">save</button> -->
   <button (click)="goBack()">go back</button>
-  <button (click)="save(hero)">save</button>
 </div>

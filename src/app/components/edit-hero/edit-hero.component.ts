@@ -6,21 +6,24 @@ import { Hero }         from '../../hero';
 import { HeroService }  from '../../services/hero.service';
 
 @Component({
-  selector: 'app-hero-profile',
-  templateUrl: './hero-profile.component.html',
-  styleUrls: [ './hero-profile.component.scss' ]
+  selector: 'app-edit-hero',
+  templateUrl: './edit-hero.component.html',
+  styleUrls: ['./edit-hero.component.scss']
 })
-export class HeroProfileComponent implements OnInit {
+export class EditHeroComponent implements OnInit {
   @Input() hero: Hero;
+
+  powers = [];
 
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
     private location: Location
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getHero();
+    this.getPowers();
   }
 
   getHero(): void {
@@ -29,12 +32,18 @@ export class HeroProfileComponent implements OnInit {
       .subscribe(hero => this.hero = hero);
   }
 
+  getPowers(): void {
+    this.heroService.getPowers()
+      .subscribe(powers => this.powers = powers);
+  }
+
+  updateHero(updatedHero: Hero): void {
+    this.heroService.updateHero(updatedHero)
+      .subscribe(() => this.goBack());
+  }
+
   goBack(): void {
     this.location.back();
   }
 
-  save(hero: Hero): void {
-    this.heroService.updateHero(hero)
-      .subscribe(() => this.goBack());
-  }
 }

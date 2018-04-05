@@ -1,7 +1,6 @@
 <h2>Add a New Hero</h2>
 
 <form #addHeroForm="ngForm" (ngSubmit)="addHero()">
-
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name"
@@ -36,5 +35,3 @@
 
     <button type="submit" class="btn btn-success" [disabled]="!addHeroForm.form.valid">Submit</button>
 </form>
-
-<button (click)="goBack()">go back</button>
