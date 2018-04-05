@@ -24,9 +24,6 @@ export class HeroSortComponent implements OnInit {
 
   onChange(option = '') {
     this.onSort.emit(option);
-    // console.log(this.heroes);
-    // this.sortedHeroes = this.heroService.sortHeroes('', this.heroes);
-    // console.log(this.sortedHeroes);
 }
 
   getSortOptions(): void {

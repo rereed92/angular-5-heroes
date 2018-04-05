@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+
+import { Hero } from '../../hero';
+import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-add-hero',
@@ -7,9 +11,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddHeroComponent implements OnInit {
 
-  constructor() { }
+  heroes: Hero[];
+  powers = [];
+  newHero = new Hero('', '', '', '');
+
+  constructor(private heroService: HeroService, private location: Location) { }
 
   ngOnInit() {
+    this.getHeroes();
+    this.getPowers();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+    .subscribe(heroes => this.heroes = heroes);
+  }
+
+  getPowers(): void {
+    this.heroService.getPowers()
+      .subscribe(powers => this.powers = powers);
+  }
+
+  addHero(): void {
+    this.newHero.id = (this.newHero.name).toLowerCase().replace(' ', '-');
+    this.heroService.addHero(this.newHero)
+      .subscribe(hero => {
+        this.heroService.emitNewHero(hero);
+      });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

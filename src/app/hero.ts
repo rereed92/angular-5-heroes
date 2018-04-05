@@ -1,4 +1,10 @@
 export class Hero {
-    id: number;
-    name: string;
+    
+    constructor(
+    public id: string,
+    public name: string,
+    public power: string,
+    public alterEgo?: string
+    ) {  }
+
 }

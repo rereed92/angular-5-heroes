@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { from } from 'rxjs/observable/from';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs/Subject';
 
 import { Hero } from '../hero';
 import { MessageService } from './message.service';
@@ -16,12 +17,19 @@ const httpOptions = {
 @Injectable()
 export class HeroService {
 
-  private heroesUrl = 'api/heroes';  // URL to web api
+  private heroesUrl = 'api/heroes';
+  private powersUrl = 'api/powers';
   private sortUrl = 'api/sortOptions';
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
+
+  private emitNewHeroSource = new Subject<any>();
+  newHeroEmitted$ = this.emitNewHeroSource.asObservable();
+  emitNewHero(hero: Hero) {
+      this.emitNewHeroSource.next(hero);
+  }
 
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
@@ -37,6 +45,14 @@ export class HeroService {
       tap(_ => this.log(`fetched hero id=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
+  }
+
+  getPowers(): Observable<any> {
+    return this.http.get<any>(this.powersUrl)
+      .pipe(
+        tap(heroes => this.log(`fetched powers`)),
+        catchError(this.handleError('getPowers'))
+      );
   }
 
   getSortOptions(): Observable<any> {
