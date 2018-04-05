@@ -25,11 +25,17 @@ export class HeroService {
     private http: HttpClient,
     private messageService: MessageService) { }
 
-  private emitNewHeroSource = new Subject<any>();
-  newHeroEmitted$ = this.emitNewHeroSource.asObservable();
+  private emitHeroSource = new Subject<any>();
+
+  newHeroEmitted$ = this.emitHeroSource.asObservable();
   emitNewHero(hero: Hero) {
-      this.emitNewHeroSource.next(hero);
+      this.emitHeroSource.next(hero);
   }
+
+  removeHeroEmitted$ = this.emitHeroSource.asObservable();
+  emitRemoveHero(hero: Hero) {
+    this.emitHeroSource.next(hero);
+}
 
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)

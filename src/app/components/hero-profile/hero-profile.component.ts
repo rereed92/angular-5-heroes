@@ -11,6 +11,7 @@ import { HeroService }  from '../../services/hero.service';
   styleUrls: [ './hero-profile.component.scss' ]
 })
 export class HeroProfileComponent implements OnInit {
+
   @Input() hero: Hero;
 
   constructor(
@@ -29,12 +30,15 @@ export class HeroProfileComponent implements OnInit {
       .subscribe(hero => this.hero = hero);
   }
 
-  goBack(): void {
-    this.location.back();
+  removeHero(hero: Hero): void {
+    this.heroService.deleteHero(hero)
+      .subscribe((hero) => {
+        this.heroService.emitRemoveHero(hero)
+        this.goBack();
+      });
   }
 
-  save(hero: Hero): void {
-    this.heroService.updateHero(hero)
-      .subscribe(() => this.goBack());
+  goBack(): void {
+    this.location.back();
   }
 }

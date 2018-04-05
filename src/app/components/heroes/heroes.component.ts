@@ -16,6 +16,11 @@ export class HeroesComponent implements OnInit {
       hero => {
           this.heroes.push(hero);
       });
+
+    heroService.removeHeroEmitted$.subscribe(
+      hero => {
+        this.heroes = this.heroes.filter(h => h !== hero);
+      });
   }
 
   ngOnInit() {
