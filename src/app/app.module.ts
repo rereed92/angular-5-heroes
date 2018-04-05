@@ -10,7 +10,7 @@ import { AppRoutingModule }     from './app-routing.module';
 
 import { AppComponent }         from './app.component';
 import { DashboardComponent }   from './components/dashboard/dashboard.component';
-import { HeroDetailComponent }  from './components/hero-detail/hero-detail.component';
+import { HeroProfileComponent }  from './components/hero-profile/hero-profile.component';
 import { HeroesComponent }      from './components/heroes/heroes.component';
 import { HeroSearchComponent }  from './components/hero-search/hero-search.component';
 import { HeroSortComponent } from './components/hero-sort/hero-sort.component';
@@ -39,7 +39,7 @@ import { MessageService }       from './services/message.service';
     AppComponent,
     DashboardComponent,
     HeroesComponent,
-    HeroDetailComponent,
+    HeroProfileComponent,
     MessagesComponent,
     HeroSearchComponent,
     HeroSortComponent,

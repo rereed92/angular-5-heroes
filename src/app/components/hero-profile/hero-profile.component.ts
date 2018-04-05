@@ -6,11 +6,11 @@ import { Hero }         from '../../hero';
 import { HeroService }  from '../../services/hero.service';
 
 @Component({
-  selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: [ './hero-detail.component.scss' ]
+  selector: 'app-hero-profile',
+  templateUrl: './hero-profile.component.html',
+  styleUrls: [ './hero-profile.component.scss' ]
 })
-export class HeroDetailComponent implements OnInit {
+export class HeroProfileComponent implements OnInit {
   @Input() hero: Hero;
 
   constructor(
