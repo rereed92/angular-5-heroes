@@ -1,10 +1,10 @@
-<h1>{{ title }}</h1>
+<div class="mat-typography">
+    <h1>{{ title }}</h1>
 
-<nav>
-    <!-- <a routerLink="/dashboard">Dashboard</a> -->
-    <a routerLink="/about">About</a>
-    <a routerLink="/heroes">Heroes</a>
-</nav>
+    <nav>
+        <a mat-button routerLink="/about">About</a>
+        <a mat-button routerLink="/heroes">Heroes</a>
+    </nav>
 
-<router-outlet></router-outlet>
-<!-- <app-messages></app-messages> -->
+    <router-outlet></router-outlet>
+</div>

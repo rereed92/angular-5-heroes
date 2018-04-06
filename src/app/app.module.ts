@@ -25,12 +25,15 @@ import { ModalComponent } from './common/modal/modal.component';
 import { HeroService }          from './services/hero.service';
 import { MessageService }       from './services/message.service';
 
+import { MaterialModule } from './material.module';
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    MaterialModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
