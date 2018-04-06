@@ -20,6 +20,8 @@ export class HeroProfileComponent implements OnInit {
     private location: Location
   ) {}
 
+  removeHeroModal: boolean = false;
+
   ngOnInit(): void {
     this.getHero();
   }
@@ -36,6 +38,10 @@ export class HeroProfileComponent implements OnInit {
         this.heroService.emitRemoveHero(hero)
         this.goBack();
       });
+  }
+
+  modalInteraction(action: string): void {
+    action === 'open' ? this.removeHeroModal = true : this.removeHeroModal = false;
   }
 
   goBack(): void {

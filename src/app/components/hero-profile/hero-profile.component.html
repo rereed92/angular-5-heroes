@@ -11,7 +11,14 @@
   </dl>
 
   <a routerLink="/hero/{{hero.id}}/edit">Edit Hero</a>
-  <button type="button" (click)="removeHero(hero)">Remove Hero</button>
+  <button type="button" (click)="modalInteraction('open')">Remove Hero</button>
 
   <button (click)="goBack()">go back</button>
+
+  <app-modal [isVisible]="removeHeroModal">
+    Are you sure you want to remove Hero {{ hero.name }} from the Heroes list?
+
+    <button (click)="removeHero(hero)">Remove {{ hero.name }}</button>
+    <button (click)="modalInteraction('close')">No, I made a mistake</button>
+  </app-modal>
 </div>

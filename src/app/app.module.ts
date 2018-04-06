@@ -20,6 +20,7 @@ import { AddHeroComponent } from './components/add-hero/add-hero.component';
 import { EditHeroComponent } from './components/edit-hero/edit-hero.component';
 
 import { ButtonComponent } from './common/button/button.component';
+import { ModalComponent } from './common/modal/modal.component';
 
 import { HeroService }          from './services/hero.service';
 import { MessageService }       from './services/message.service';
@@ -50,6 +51,7 @@ import { MessageService }       from './services/message.service';
     AboutComponent,
     AddHeroComponent,
     EditHeroComponent,
+    ModalComponent,
   ],
   providers: [ HeroService, MessageService ],
   bootstrap: [ AppComponent ]

@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'add-hero', component: AddHeroComponent },
-  { path: 'hero/:id', component: HeroProfileComponent }
+  { path: 'hero/:id', component: HeroProfileComponent },
   { path: 'hero/:id/edit', component: EditHeroComponent }
 ];
 
