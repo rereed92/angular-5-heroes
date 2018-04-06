@@ -20,7 +20,12 @@ export class HeroProfileComponent implements OnInit {
     private location: Location
   ) {}
 
-  removeHeroModal: boolean = false;
+  modal = {
+    removeHero: false,
+    editHero: false
+  }
+  // removeHeroModal: boolean = false;
+  // editHeroModal: boolean = false;
 
   ngOnInit(): void {
     this.getHero();
@@ -36,12 +41,21 @@ export class HeroProfileComponent implements OnInit {
     this.heroService.deleteHero(hero)
       .subscribe((hero) => {
         this.heroService.emitRemoveHero(hero)
-        this.goBack();
+        this.modalInteraction('removeHero', 'close');
+        // this.goBack();
       });
   }
 
-  modalInteraction(action: string): void {
-    action === 'open' ? this.removeHeroModal = true : this.removeHeroModal = false;
+  updateHero(updatedHero: Hero): void {
+    this.heroService.updateHero(updatedHero)
+      .subscribe(() => {
+        this.modalInteraction('editHero', 'close');
+        // this.goBack()
+      });
+  }
+
+  modalInteraction(modalType: string, action: string): void {
+    action === 'open' ? this.modal[modalType] = true : this.modal[modalType] = false;
   }
 
   goBack(): void {
